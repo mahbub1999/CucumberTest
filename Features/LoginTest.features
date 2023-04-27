@@ -1,0 +1,6 @@
+Feature: User able to validate the login funtionalities
+
+Description: As a user can login with valid credictials
+
+
+Background: Open any browser and enter the URL
