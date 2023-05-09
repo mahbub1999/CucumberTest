@@ -8,13 +8,15 @@ import io.cucumber.testng.CucumberOptions;
 // How to run runner class? Ans: by creating .xml file 
 
 @CucumberOptions(
-		//  plugin = {""}, // generate the report
-		features = {".//Feature/"},						// location of feature file
-		glue = {"smarttech.ny.stepdefinitions"} 		// location of step definition file 
+		plugin = {"pretty","json:target/cucumber.json" }, // generate the report
+		features = {".//Feature/"},		// location of feature file
+		glue = {"smarttech.ny.stepdefinitions", "smarttech.ny.hooks" } 		// location of step definition file 
 		)
 public class TestRunner extends AbstractTestNGCucumberTests {
 
-	  
-	
 }
+
+
+
+
    

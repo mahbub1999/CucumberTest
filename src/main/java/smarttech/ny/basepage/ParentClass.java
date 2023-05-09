@@ -14,52 +14,48 @@ import org.testng.Assert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class SuperClass {
-public static Properties prop;
-public static WebDriver driver; 
+public class ParentClass {
+	public static Properties prop;
+	public static WebDriver driver;
 
-	public SuperClass() {
+	public ParentClass() {
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream("./src/main/java/smarttech/ny/config/Config.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void initialization() {
-		
+
 		String browser = prop.getProperty("browserName");
-		
+
 		if (browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 
-		}
-		else if(browser.equalsIgnoreCase("firefox")) {
+		} else if (browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
-		}
-		else if(browser.equalsIgnoreCase("edge")) {
+		} else if (browser.equalsIgnoreCase("edge")) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
+		} else if (browser.equalsIgnoreCase("opera")) {
+			WebDriverManager.operadriver().setup();
+			driver = new OperaDriver();
+
+		} else {
+			System.out.println("There is no browser.");
 		}
-			else if(browser.equalsIgnoreCase("opera")) {
-				WebDriverManager.operadriver().setup();
-				driver = new OperaDriver();
-		
-		}else 
-	{
-		System.out.println("There is no browser.");
-	}
+
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.get(prop.getProperty("QA_ENV"));
-}
-
+		
+	}
 }
