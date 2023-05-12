@@ -11,7 +11,6 @@ import smarttech.ny.generic.CommonUtil;
 
 public class MasterPageFactory extends ParentClass {
 	
-	
 	public MasterPageFactory(){
 		PageFactory.initElements(driver, this);
 	}
@@ -48,15 +47,7 @@ public class MasterPageFactory extends ParentClass {
 		
 	}
 	
-	@FindBy(xpath = "(//*[@class='btn btn-default add-to-cart'])[1]")
-	@CacheLookup
-	private WebElement clickOnCart;
-	
-	public WebElement getClickOnCart() {
-		return clickOnCart;
-		
-	}
-	public void getLogin(String userName, String password) { 
+		public void getLogin(String userName, String password) { 
 		getEnterEmail().sendKeys(userName);
 		getEnterPassword().sendKeys(password); 
 		CommonUtil.actionclick(getClickOnLoginButton());
