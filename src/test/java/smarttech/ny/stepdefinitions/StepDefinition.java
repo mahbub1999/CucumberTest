@@ -1,44 +1,38 @@
 package smarttech.ny.stepdefinitions;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-import com.github.dockerjava.api.model.Driver;
-
 import io.cucumber.java.en.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import smarttech.ny.basepage.ParentClass;
 
 import smarttech.ny.elementspage.MasterPageFactory;
+import smarttech.ny.generic.CommonUtil;
 
-public class StepDefinition extends ParentClass  {
-	
+public class StepDefinition extends ParentClass {
+
+	MasterPageFactory pf;
+
 	@Given("Verify that home page is visible successfully")
 	public void verify_that_home_page_is_visible_successfully() {
-//	
-//		
-//		driver.findElement(By.xpath("(//*[@type='email'])[1]")).sendKeys("tanvirpatwary16@gmail.com");
-//		driver.findElement(By.xpath("(//*[@type='password'])")).sendKeys("Tester01");
-//		driver.findElement(By.xpath("//button[@type='submit'] ")).click();
-		
-		String expected = "Home";
-		
-		String actual = driver.findElement(By.xpath("//*[text()=' Home']")).getText();
-		Assert.assertEquals(expected, actual);
-		System.out.println("Visibility of Home page:: " + actual);
-		
-			}
+		pf = new MasterPageFactory();
+		pf.getLogin(prop.getProperty("UserName"), prop.getProperty("Password"));
+
+		String text = driver.findElement(By.xpath("//*[text()=' Home']")).getText();
+		Assert.assertEquals("Home", text);
+
+	}
 
 	@When("Users Able To Click On Products Module")
 	public void users_able_to_click_on_products_module() {
+		pf.getClickOnProduct().click();
+		CommonUtil.actionclick(pf.getClickOnProduct());
 
 	}
 
 	@Then("Users Able To Verify {string} Text Are Available On The Screen")
 	public void users_able_to_verify_text_are_available_on_the_screen(String string) {
-
+		
 	}
 
 	@When("Users Able To Check All the Products Prices Are Displayed And Print In Console")

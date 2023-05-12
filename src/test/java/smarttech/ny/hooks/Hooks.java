@@ -11,7 +11,7 @@ public class Hooks extends ParentClass {
 	}
 
 	@After
-	public void tearDown() {
+	public void tearDown() throws InterruptedException {
 		driver.quit();
 			}
 }

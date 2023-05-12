@@ -1,6 +1,5 @@
 package smarttech.ny.elementspage;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
@@ -11,17 +10,20 @@ import smarttech.ny.basepage.ParentClass;
 import smarttech.ny.generic.CommonUtil;
 
 public class MasterPageFactory extends ParentClass {
+	
+	
 	public MasterPageFactory(){
 		PageFactory.initElements(driver, this);
-		
 	}
+	
 	@FindBy(xpath = "(//input[@type='email'])[1]")
 	@CacheLookup
-	private WebElement enterEmail;
+	private WebElement enterEmail; // WebElement is an interface & enterEmail is an instance
 	
 	public WebElement getEnterEmail() {
 		return enterEmail;
 	}
+	
 	@FindBy(xpath = "//input[@type='password']")
 	@CacheLookup
 	private WebElement enterPassword;
@@ -37,19 +39,29 @@ public class MasterPageFactory extends ParentClass {
 		return clickOnLoginButton;
 	}
 	
-	public void getLogin(String userName, String password) { 
-		getEnterEmail().sendKeys(userName);
-		getEnterPassword().sendKeys(password);
-		
-		CommonUtil.actionclick(getClickOnLoginButton());
-		
-		Actions ac = new Actions(driver);
-		ac.click(getClickOnLoginButton()).build().perform();
-		getClickOnLoginButton().click();
+	@FindBy(xpath = "//a[text()=' Products']")
+	@CacheLookup
+	private WebElement clickOnProduct;
 	
+	public WebElement getClickOnProduct() {
+		return clickOnProduct;
+		
 	}
 	
+	@FindBy(xpath = "(//*[@class='btn btn-default add-to-cart'])[1]")
+	@CacheLookup
+	private WebElement clickOnCart;
 	
+	public WebElement getClickOnCart() {
+		return clickOnCart;
+		
+	}
+	public void getLogin(String userName, String password) { 
+		getEnterEmail().sendKeys(userName);
+		getEnterPassword().sendKeys(password); 
+		CommonUtil.actionclick(getClickOnLoginButton());
+
+	}
 	
 }
 	

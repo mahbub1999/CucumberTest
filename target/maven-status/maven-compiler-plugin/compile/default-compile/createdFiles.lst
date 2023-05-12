@@ -1,5 +1,6 @@
-smarttech\ny\generic\CommonUtil.class
 smarttech\ny\generic\ExcelUtil.class
+smarttech\ny\generic\CommonUtil.class
+smarttech\ny\basepage\ParentClass.class
 smarttech\ny\elementspage\MasterPageFactory.class
 smarttech\ny\listenerpage\TestListener.class
 smarttech\ny\generic\DataBaseUtil.class
