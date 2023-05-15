@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="4" name="Failed suite [MahbubSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="4" name="ChromeTesting(failed)">
+    <parameter name="Browser" value="Chrome"/>
+    <classes>
+      <class name="smarttech.ny.TestNGChallenges.CrossBrowserTesting">
+        <methods>
+          <include name="getCloseBrowser"/>
+          <include name="getLogIn"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- smarttech.ny.TestNGChallenges.CrossBrowserTesting -->
+    </classes>
+  </test> <!-- ChromeTesting(failed) -->
+  <test thread-count="4" name="EdgeTesting(failed)">
+    <parameter name="Browser" value="Edge"/>
+    <classes>
+      <class name="smarttech.ny.TestNGChallenges.CrossBrowserTesting">
+        <methods>
+          <include name="getCloseBrowser"/>
+          <include name="getLogIn"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- smarttech.ny.TestNGChallenges.CrossBrowserTesting -->
+    </classes>
+  </test> <!-- EdgeTesting(failed) -->
+  <test thread-count="4" name="FirefoxTesting(failed)">
+    <parameter name="Browser" value="FireFox"/>
+    <classes>
+      <class name="smarttech.ny.TestNGChallenges.CrossBrowserTesting">
+        <methods>
+          <include name="getCloseBrowser"/>
+          <include name="getLogIn"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- smarttech.ny.TestNGChallenges.CrossBrowserTesting -->
+    </classes>
+  </test> <!-- FirefoxTesting(failed) -->
+  <test thread-count="4" name="OperaTesting(failed)">
+    <parameter name="Browser" value="Opera"/>
+    <classes>
+      <class name="smarttech.ny.TestNGChallenges.CrossBrowserTesting">
+        <methods>
+          <include name="getCloseBrowser"/>
+          <include name="getLogIn"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- smarttech.ny.TestNGChallenges.CrossBrowserTesting -->
+    </classes>
+  </test> <!-- OperaTesting(failed) -->
+</suite> <!-- Failed suite [MahbubSuite] -->

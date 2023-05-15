@@ -20,7 +20,7 @@ public class StepDefinition extends ParentClass {
 
 		String text = driver.findElement(By.xpath("//*[text()=' Home']")).getText();
 		Assert.assertEquals("Home", text);
-
+		System.out.println("Print 'Home' in console: " + text);
 	}
 
 	@When("Users Able To Click On Products Module")
@@ -32,7 +32,7 @@ public class StepDefinition extends ParentClass {
 
 	@Then("Users Able To Verify {string} Text Are Available On The Screen")
 	public void users_able_to_verify_text_are_available_on_the_screen(String string) {
-		
+
 	}
 
 	@When("Users Able To Check All the Products Prices Are Displayed And Print In Console")
