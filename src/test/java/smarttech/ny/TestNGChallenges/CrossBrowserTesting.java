@@ -47,11 +47,12 @@ public class CrossBrowserTesting {
 
 	@Test
 	public void getLogIn() {
+		driver.get("https://www.automationexercise.com/login");
 		driver.findElement(By.xpath("(//input[@name='email'])[1]")).sendKeys("tanvirpatwary16@gmail.com");
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("Tester01");	
 		driver.findElement(By.xpath("(//button[@type='submit'])[1]")).click();
 		driver.manage().window().maximize();
-		//System.out.println("LogIn the application"); 
+		System.out.println("LogIn the application"); 
 	}
 
 	@AfterMethod
